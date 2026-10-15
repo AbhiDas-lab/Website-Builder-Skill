@@ -45,6 +45,8 @@ git clone https://github.com/AbhiDas-lab/Website-Builder-Skill.git .claude/skill
 
 The folder name should match the `name` in `SKILL.md` (`website-review-build`).
 
+On Windows, a project inside a deeply nested or synced folder can push git past the 260-character path limit, and the clone fails with "Filename too long". Run `git config --global core.longpaths true`, or clone from a shorter path.
+
 ### Claude.ai and the Claude desktop app
 
 Download the repository as a ZIP, make sure `SKILL.md` sits at the top level of the folder inside it, and upload it under Settings, Capabilities, Skills. Skills need to be enabled for your plan or organisation.

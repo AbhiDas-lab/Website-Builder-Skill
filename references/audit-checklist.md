@@ -101,7 +101,7 @@ The pitfalls are the valuable part. They are how a reasonable-looking check ende
 - Test at every viewport, applying both exceptions:
   - **Spacing:** a 24px circle centred on the target touches no other target.
   - **Inline in prose:** the nearest block holds words, not just separators.
-- Skip targets covered by another element, and content inside a closed `<details>`. Chromium still lays that content out, which produced 38 false failures.
+- Skip targets covered by another element, and content inside a closed `<details>`. Chromium still lays that content out, which produced dozens of false failures.
 - This check took four rounds before it could be trusted. Break-test it.
 
 **Contrast, including over images and scrims [S/B].**
@@ -161,7 +161,7 @@ The pitfalls are the valuable part. They are how a reasonable-looking check ende
 
 **Header rules [L].**
 - Some hosts merge header rules rather than letting the most specific win.
-- Pitfall: a duplicated `Cache-Control` silently disabled caching, and a rule scoped to `/index.html` matched one page in 45.
+- Pitfall: a duplicated `Cache-Control` silently disabled caching, and a rule scoped to `/index.html` matched only the home page.
 - Verify the served headers live.
 
 **Render-blocking CSS budget per page [S].** A budget of about 1.5x the heaviest current page catches a heavy import landing in the shared layout.

@@ -78,7 +78,7 @@ What to do:
 ## Hosts and CDNs
 
 **Dashboard rules override the repo.**
-- A transform rule silently rewrote security headers for 11 days.
+- A transform rule silently rewrote security headers for over a week before anyone noticed.
 - Header rules may merge rather than the most specific one winning.
 - Only a live check sees either.
 

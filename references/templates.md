@@ -9,7 +9,7 @@ One file per project, for example `AUDIT-LEDGER.md`. Number rows forever and nev
 
 | # | Finding and change | Files |
 | --- | --- | --- |
-| 41 | Titles over 600px were being cut in search results (measured: 7 of 52). Labels shortened; verify now measures every <title> in pixels and fails over budget. Break-tested by lengthening one title. | `src/pages/*.astro`, `scripts/verify.mjs` |
+| 41 | Titles over 600px were being cut in search results (measured: 7 of 40). Labels shortened; verify now measures every <title> in pixels and fails over budget. Break-tested by lengthening one title. | `src/pages/*.astro`, `scripts/verify.mjs` |
 
 ## Pending
 
@@ -27,7 +27,7 @@ One file per project, for example `AUDIT-LEDGER.md`. Number rows forever and nev
 
 | Claim | Source | What measurement showed |
 | --- | --- | --- |
-| "Structured data missing" | External SEO report | Present on all 51 pages |
+| "Structured data missing" | External SEO report | Present on every page |
 ```
 
 Write a row when the change ships, not when it is planned. Each closed row names the check that now holds it, and how that check was break-tested.
