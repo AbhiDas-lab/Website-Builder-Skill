@@ -1,0 +1,10 @@
+{
+  "name": "northfield-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "astro build",
+    "postbuild": "node scripts/house-rules.mjs",
+    "verify": "node scripts/verify.mjs"
+  }
+}

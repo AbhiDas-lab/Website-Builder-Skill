@@ -80,7 +80,7 @@ The agent reads the project's house profile (usually its `CLAUDE.md`) for site-s
 | `references/templates.md` | Ledger, review report, owner decision and house profile templates. |
 | `scripts/title-width.mjs` | Pixel width of a page title as Google's desktop results render it. |
 | `scripts/break-test.mjs` | Mutate a file, run a check, confirm it fails with the expected message, restore the file. |
-| `evals/` | Three test prompts with assertions, plus a small fictional site to audit. |
+| `evals/` | Four test prompts with assertions, plus fictional fixtures: a site to audit and a set of check scripts to judge. |
 
 ## Scripts
 
@@ -108,11 +108,13 @@ Run `node scripts/break-test.mjs --help` for every option.
 
 ## Evals
 
-`evals/evals.json` holds three scenarios: acting on a third-party SEO audit, planning a new microsite, and building a CMS-editable banner. Each has an expected outcome and a list of assertions to grade against.
+`evals/evals.json` holds four scenarios: acting on a third-party SEO audit, planning a new microsite, building a CMS-editable banner, and deciding whether a site's existing check scripts can be trusted. Each has an expected outcome and a list of assertions to grade against.
 
-The first scenario uses `evals/fixtures/`, a small built site for "Northfield Analytical Services" with deliberate faults, and an audit report about it that is partly wrong. The company, people, clients, partners, phone number and form id are all fictional. The domain uses the reserved `.example` top-level domain and the phone number is from Ofcom's range reserved for drama.
+Each assertion tests one behaviour. A strong model without the skill already gets the obvious findings, so most assertions target what the skill specifically teaches: which gate a check belongs in, break-testing with a control case, measuring titles in pixels, reporting rather than failing where a failure would punish an editor, testing bot protection with a forged token, and checking schema parity in both directions. `grading_notes` in the file says how to grade them.
 
-To run them by hand, start a session with the skill installed, paste each prompt from the repository root, and grade the answer against its assertions. The `skill-creator` skill can run them as a benchmark with and without this skill.
+The first scenario uses `evals/fixtures/site/` and `evals/fixtures/audit-report.md`: a small built site for "Northfield Analytical Services" with deliberate faults, and an audit report about it that is partly wrong. The fourth uses `evals/fixtures/checks/`: the same fictional company's site with two check scripts that pass but cannot catch several of the faults they exist for. The company, people, clients, partners, phone number and form id are all fictional. The domain uses the reserved `.example` top-level domain and the phone number is from Ofcom's range reserved for drama.
+
+To run them by hand, start a session with the skill installed, paste each prompt from the repository root, and grade the answer against its assertions. The `skill-creator` skill can run them as a benchmark with and without this skill. Run the agent in a folder that holds the fixtures but not `evals.json`, or it can read the assertions. Results of a three-run benchmark are in `evals/results/`.
 
 ## Adapting it
 
