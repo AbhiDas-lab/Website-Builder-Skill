@@ -91,6 +91,7 @@ Ground rules for all four:
 - **House rules.** House language and leak rules run at postbuild, because a CMS save deploys without review.
 - **Scheduled posts.** Check them at source, because `dist` cannot see them yet.
 - **Report or fail.** Decide per rule whether a violation is a report or a failure, and write down why.
+- **Pasted links.** Any link field an editor fills: require `https`, strip everything from the `?` (tracking parameters, and share links that carry the sharer's id), allowlist the expected host where there is one, and give external links `rel="noopener"`. Store video ids, not whole URLs.
 - **Plain text.** Render CMS fields as text, never as raw HTML (no `set:html` or `innerHTML` on editor input) unless the field is rich text that is sanitised at build.
 - **Errors for the editor.** Write build errors for whoever will read them. Name the field, the value, the limit and what to do: "title is 61 characters; the banner holds 45. Shorten it." Not a stack trace.
 - **Validation without time bombs.** Validation must not make a build fail just because time has passed. A schema that rejects past dates breaks the site on the day after the event, with no commit to blame. Expire content at render time instead.
