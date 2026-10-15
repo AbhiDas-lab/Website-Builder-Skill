@@ -1,0 +1,63 @@
+{
+  "skill_name": "website-review-build",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our SEO agency sent us this audit (fixtures/audit-report.md) for our website, whose built files are in fixtures/site/dist (the repo README is at fixtures/site/README.md). Which of their recommendations should we act on, and is there anything important they missed?",
+      "expected_output": "Measures each claim against the built files; rejects the false ones (logo alt is correct, structured data present, sitemap stale and lists a missing page, heading claim wrong) and the harmful ones (lazy on first hero, more autoplay); finds missed issues (zoom disabled, mailto, dead links, Formspree id, rcm= tracking, personal phone number, 13px input, no carousel pause, ungated hover, uppercase brand casing); notes the deploy gate reality; findings tied to checks.",
+      "files": [
+        "fixtures/audit-report.md",
+        "fixtures/site/"
+      ],
+      "assertions": [
+        "Rejects the logo alt claim: says the empty alt is correct because the visible company name sits beside the logo in the same link",
+        "Rejects the structured data claim: notes Organization JSON-LD is already present",
+        "Challenges the 60-character title rule or measures the title in pixels, while agreeing the title is too long",
+        "Rejects lazy-loading the hero: the first or visible hero image should load eagerly, and/or lazy images inside display:none slides may never load",
+        "Rejects adding autoplay: the carousel already autoplays every 4s with no pause control (WCAG 2.2.2) or reduced-motion handling",
+        "Rejects the sitemap claim: it lists /pricing/ which does not exist and/or uses the build timestamp as lastmod",
+        "Flags that zoom is disabled (maximum-scale=1 / user-scalable=no)",
+        "Flags the Formspree form endpoint exposed in the HTML and/or the lack of server-side bot protection",
+        "Flags the LinkedIn link carrying a tracking or sharer-identifying parameter (rcm= / utm) that should be stripped",
+        "Flags the named staff member and personal mobile number on the about page as personal data",
+        "Flags dead internal links (/pricing and/or /services/*)",
+        "Notes that the audit only crawled the homepage, or audits the about page itself",
+        "Notes the deploy reality: pushes deploy any branch while CI runs in parallel, so must-hold checks belong in the build"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We are about to build a small microsite for a professional training programme: about 8 pages, a news section the programme coordinator will update through a git-based CMS, an enquiry form, and an embedded YouTube video on the home page. It will be Astro on Cloudflare, deployed automatically on every push. Before anyone builds pages, what should we set up and decide?",
+      "expected_output": "A day-one plan: deploy/gate facts, check scaffolding (postbuild vs CI vs browser vs live), CSP without unsafe-inline, form handled server-side with bot check, click-to-load video, CMS schema parity and report-vs-fail, URL/canonical/404/immutable assets, house profile, ledger, mobile/motion baseline.",
+      "files": [],
+      "assertions": [
+        "Establishes what a push deploys and which checks can block a deploy (build/postbuild) versus run alongside it (CI)",
+        "Says every rule should become an automated check, and that checks should be break-tested or seen to fail",
+        "Handles the enquiry form server-side with bot protection verified on the server (not client-only) and keeps the endpoint/secret out of the repo and HTML",
+        "Makes the YouTube embed click-to-load (facade) or otherwise avoids loading YouTube on page load",
+        "Sets a Content Security Policy and addresses inline scripts (no unsafe-inline, or how Astro islands/inline scripts interact with it)",
+        "Covers CMS safety: schema and CMS config kept in step, required fields, or build-time checks on CMS content because a CMS save deploys",
+        "Decides URL form (trailing slash/canonical) and/or disabling duplicate preview origins such as workers.dev",
+        "Configures the 404 page to be served with a 404 status",
+        "Proposes recording decisions/rules in a project document (house profile, CLAUDE.md, ledger or similar)",
+        "Covers mobile/touch or reduced-motion basics (hover gating, input size, zoom, reduced motion)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our marketing person wants a banner at the top of the home page announcing the next webinar (title, date, time, a short line, and a Register link to an external form). She will update it every month through our CMS. The site is Astro, deployed automatically on every commit, and our CI checks run in parallel with the deploy. How should we build it so a future update cannot break the page? Small snippets are fine but I mainly want the approach.",
+      "expected_output": "Worst-case content pass, build-time length limits that fail the deploy (since CI does not gate), optional line that gives way, schema parity with CMS, expiry handled without a deploy, tracking params stripped from pasted URLs, external link noopener, checks break-tested, report vs fail.",
+      "files": [],
+      "assertions": [
+        "Recommends testing with worst-case content (long title, missing fields, etc.) before trusting the banner",
+        "Puts length/shape limits in the build so an over-long or invalid entry fails the deploy, explicitly because CI runs in parallel and cannot stop it",
+        "Handles expiry so a past webinar disappears without needing a deploy (client-side date check, edge logic or similar)",
+        "Validates the CMS schema: required fields, types, dates, and keeps the CMS field config in step with the content schema",
+        "Validates the Register URL (https, external link handling such as rel=noopener) and/or strips tracking parameters from pasted links",
+        "Lets optional content give way (wrap or hide an optional line) rather than truncating or overflowing",
+        "Says the checks themselves should be break-tested or seen to fail",
+        "Distinguishes what should fail the build from what should only be reported, so an editor is not blocked unnecessarily"
+      ]
+    }
+  ]
+}
