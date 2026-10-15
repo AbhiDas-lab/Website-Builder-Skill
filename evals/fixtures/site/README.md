@@ -1,0 +1,1 @@
+Northfield Analytical Services website. Static build output in dist/. Deployed by the host on every push to any branch; CI runs `npm run lint` in parallel. The sitemap is regenerated at build time with the build timestamp as lastmod.

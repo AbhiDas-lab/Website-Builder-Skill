@@ -3,11 +3,11 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "Our SEO agency sent us this audit (fixtures/audit-report.md) for our website, whose built files are in fixtures/site/dist (the repo README is at fixtures/site/README.md). Which of their recommendations should we act on, and is there anything important they missed?",
+      "prompt": "Our SEO agency sent us this audit (evals/fixtures/audit-report.md) for our website, whose built files are in evals/fixtures/site/dist (the repo README is at evals/fixtures/site/README.md). Which of their recommendations should we act on, and is there anything important they missed?",
       "expected_output": "Measures each claim against the built files; rejects the false ones (logo alt is correct, structured data present, sitemap stale and lists a missing page, heading claim wrong) and the harmful ones (lazy on first hero, more autoplay); finds missed issues (zoom disabled, mailto, dead links, Formspree id, rcm= tracking, personal phone number, 13px input, no carousel pause, ungated hover, uppercase brand casing); notes the deploy gate reality; findings tied to checks.",
       "files": [
-        "fixtures/audit-report.md",
-        "fixtures/site/"
+        "evals/fixtures/audit-report.md",
+        "evals/fixtures/site/"
       ],
       "assertions": [
         "Rejects the logo alt claim: says the empty alt is correct because the visible company name sits beside the logo in the same link",

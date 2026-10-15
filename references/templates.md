@@ -15,7 +15,7 @@ One file per project, for example `AUDIT-LEDGER.md`. Number rows forever and nev
 
 | # | Item | Owner | Blocks |
 | --- | --- | --- | --- |
-| 44 | Grievance officer named in the privacy policy | Owner | Legal sign-off |
+| 44 | Data protection contact named in the privacy policy | Owner | Legal sign-off |
 
 ## Deliberately not doing
 

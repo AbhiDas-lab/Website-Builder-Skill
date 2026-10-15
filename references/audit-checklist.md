@@ -29,7 +29,7 @@ The pitfalls are the valuable part. They are how a reasonable-looking check ende
 - Google cuts desktop titles at about 600px of 20px Arial, and character counts mislead: 45 characters measured 416px, while 61 characters measured 589px.
 - Measure with `scripts/title-width.mjs`.
 - Put the label first (`Label · Brand`) and design the label to `600 − suffix width`.
-- Pitfall: a 60-character rule let an 82-character title through, and a character-based rule is how "CARDIOVASCULA" shipped cut off.
+- Pitfall: a 60-character rule let an 82-character title through, and a character-based rule is how "INTERNATIONA" shipped cut off.
 
 **Search title vs breadcrumb label [S].**
 - If breadcrumbs derive from `<title>`, a search-tuned title changes the trail.
@@ -59,7 +59,7 @@ The pitfalls are the valuable part. They are how a reasonable-looking check ende
 - Keep one Organization node, referenced by `@id`.
 - Render BreadcrumbList from the same source as the visible trail, and assert they match name for name.
 - A byline in schema must be visible in prose and agree with the meta.
-- Check shape, not truthiness: `areaServed` is a Country node, not the string `'IN'`.
+- Check shape, not truthiness: `areaServed` is a Country node, not the string `'GB'`.
 - Do not add Product schema without price or reviews, or VideoObject for click-to-load embeds Googlebot cannot see.
 - Pitfall: an author check matched the name inside the JSON-LD itself and could never fail until `<script>` was stripped first.
 

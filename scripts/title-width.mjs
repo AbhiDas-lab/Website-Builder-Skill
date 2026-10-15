@@ -57,7 +57,7 @@ export const labelBudget = (suffix) => TITLE_BUDGET_PX - titleWidth(suffix);
 
 /** Titles measured in Chrome with the same font (measureText), 9 October 2026. */
 const GROUND_TRUTH = [
-  ['Wholesale laboratory reagents, India · Example Supplies', 503.6],
+  ['Wholesale office furniture, Toronto · Example Supplies', 480.99],
   ['AVIATION SAFETY TRAINING COURSES · Example Academy', 563.82],
   ['Contact us · Example Co', 222.31],
   ['Typewriter maintenance, Yorkshire · Example & Sons Ltd', 505.06],

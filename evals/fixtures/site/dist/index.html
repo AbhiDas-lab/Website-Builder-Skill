@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Northfield Analytical Services: Laboratory Testing, Calibration and Consulting · Northfield</title>
+<meta name="description" content="Lab testing and calibration.">
+<link rel="canonical" href="https://www.northfield.example/">
+<style>
+  .card { transition: transform .2s ease; }
+  .card:hover { transform: translateY(-4px); }
+  .hero-slide { display: none; }
+  .hero-slide.is-on { display: block; }
+  .eyebrow { text-transform: uppercase; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Northfield Analytical Services","url":"https://www.northfield.example/"}</script>
+</head>
+<body>
+<header><a href="/"><img src="/assets/logo.svg" alt="" width="40" height="40"> Northfield Analytical Services</a>
+<nav><a href="/about/">About</a> <a href="/pricing">Pricing</a> <a href="mailto:hello@northfield.example">Email us</a></nav></header>
+<main>
+<h1>Testing you can stand behind</h1>
+<div id="hero">
+  <div class="hero-slide is-on"><img src="/assets/lab-1.jpg" alt="Our lab — ISO 17025 accredited" loading="lazy"></div>
+  <div class="hero-slide"><img src="/assets/lab-2.jpg" alt="Calibration bench" loading="lazy"></div>
+  <div class="hero-slide"><img src="/assets/lab-3.jpg" alt="" loading="lazy"></div>
+</div>
+<p class="eyebrow">Partnered with pH-Metrix and eZyCal Instruments</p>
+<section>
+  <div class="card"><h2>Water testing</h2><p>Results in 5–7 days.</p><a href="/services/water">More</a></div>
+  <div class="card"><h2>Calibration</h2><p>UKAS-traceable calibration for balances and pipettes.</p><a href="/services/calibration">More</a></div>
+  <div class="card"><h2>Consulting</h2><p>Our day rate is £850 for on-site audits.</p><a href="/services/consulting">More</a></div>
+</section>
+<p>Follow our news on <a href="https://www.linkedin.com/posts/northfield_lab-update-activity-71234?utm_source=share&rcm=ACoAABx9QqEBk3mZ">LinkedIn</a>.</p>
+<form action="https://formspree.io/f/xqkrbzwa" method="post"><label>Email <input type="email" name="email" style="font-size:13px"></label><button>Send</button></form>
+</main>
+<script>
+  let i = 0; const s = document.querySelectorAll('.hero-slide');
+  setInterval(() => { s[i].classList.remove('is-on'); i = (i + 1) % s.length; s[i].classList.add('is-on'); }, 4000);
+</script>
+</body>
+</html>
