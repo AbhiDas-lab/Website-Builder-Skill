@@ -1,5 +1,7 @@
 # website-review-build
 
+> **This repository is archived.** The skill now lives in [AbhiDas-lab/claude-skills](https://github.com/AbhiDas-lab/claude-skills/tree/main/skills/website-review-build), with lessons added up to 12 November 2026. Install it from there.
+
 An agent skill for reviewing and building marketing and content websites so they stay correct after launch.
 
 A site does not stay correct because someone reviewed it once. It stays correct when every rule is an automated check, every check runs somewhere that can stop a bad deploy, and every check has been seen to fail. This skill teaches an agent to work that way.
